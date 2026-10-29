@@ -19,6 +19,13 @@ import Comp4 from "./Comp4";
 import Comp5 from "./Comp5";
 import Pagenotfound from "./Pagenotfound";
 import { NavLink, Link } from "react-router";
+import Comp11 from "./Comp11";
+import Comp12 from "./Comp12";
+import Comp13 from "./Comp13";
+import Comp14 from "./Comp14";
+import Comp21 from "./Comp21";
+import Comp31 from "./Comp31";
+import Comp41 from "./Comp41";
 
 const PROJECTROUTE = (
   <BrowserRouter>
@@ -31,6 +38,10 @@ const PROJECTROUTE = (
         <Route path="comp4" element={<Comp4 />} />
         <Route path="comp5" element={<Comp5 />} />
         <Route path="*" element={<Pagenotfound />} />
+        <Route path="comp11" element={<Comp11 />} />
+        <Route path="comp21" element={<Comp21 />} />
+        <Route path="comp31" element={<Comp31 />} />
+        <Route path="comp41" element={<Comp41 />} />
       </Route>
     </Routes>
   </BrowserRouter>

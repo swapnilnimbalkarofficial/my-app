@@ -14,23 +14,35 @@ function Header() {
 
       <nav className="w-full lg:w-2/3">
         <ul className="flex flex-wrap justify-center lg:justify-end">
-          <li class="px-2">
+          <li class="px-2 pr-2">
             <Link to="/">Home</Link>
           </li>
-          <li class="px-2">
+          <li class="px-2 pr-2">
             <Link to="/comp1">Label1</Link>
           </li>
-          <li class="px-2">
+          <li class="px-2 pr-2">
             <Link to="/comp2">Label2</Link>
           </li>
-          <li class="px-2">
+          <li class="px-2 pr-2">
             <Link to="/comp3">Label3</Link>
           </li>
-          <li class="px-2">
+          <li class="px-2 pr-2">
             <Link to="/comp4">Label4</Link>
           </li>
-          <li class="px-2">
+          <li class="px-2 pr-2">
             <Link to="/comp5">Label5</Link>
+          </li>
+          <li class="px-2 pr-2">
+            <Link to="/comp11">Props Drilling</Link>
+          </li>
+          <li class="px-2 pr-2">
+            <Link to="/comp21">Context API</Link>
+          </li>
+          <li class="px-2 pr-2">
+            <Link to="/comp31">State List</Link>
+          </li>
+          <li class="px-2 pr-2">
+            <Link to="/comp41">Error Boundary</Link>
           </li>
         </ul>
       </nav>
