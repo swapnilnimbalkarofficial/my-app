@@ -1,10 +1,23 @@
-import React from "react";
-import { Link } from "react-router";
+import React, { useRef } from "react";
+import { Link, useNavigate } from "react-router";
+import { searchMovie } from "../redux/slices/searchSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 function Header() {
+  //let record = useSelector((state) => state.cart.cartvalue);
+  let record = useSelector((state) => state.cart?.cartValue ?? []);
+  let x1 = useRef();
+  let navigate = useNavigate();
+  let dispatch = useDispatch();
+  function myFunction() {
+    if (x1.current.value != "") {
+      dispatch(searchMovie(x1.current.value));
+      navigate("/search");
+    }
+  }
   return (
     <header className="w-full max-w-6xl mx-auto pt-2 pb-2 flex flex-col lg:flex-row">
-      <figure className="w-full lg:w-1/3">
+      <figure className="logo w-full lg:w-1/3">
         <img
           className="animate__animated animate__bounce"
           src="/images/logo.png"
@@ -43,6 +56,15 @@ function Header() {
           </li>
           <li class="px-2 pr-2">
             <Link to="/comp41">Error Boundary</Link>
+          </li>
+          <li class="px-2 pr-2">
+            <Link to="cart">Cart ({record.length})</Link>
+          </li>
+          <li class="px-2 pr-2">
+            <input ref={x1} className="border" type="text" />
+            <button onClick={myFunction} className="border cursor-pointer">
+              Search
+            </button>
           </li>
         </ul>
       </nav>

@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { addToCart, removeFromCart } from "../redux/slices/cartSlice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 
 export default function Home() {
+  let dispatch = useDispatch();
+  let navigate = useNavigate();
   let [data1, setData1] = useState([]);
   let [data2, setData2] = useState([]);
   useEffect(function () {
@@ -20,13 +25,21 @@ export default function Home() {
         console.log(err);
       });
   }, []);
+
+  function myFunction(value) {
+    dispatch(addToCart(value));
+    navigate("/cart");
+  }
+  function myFunction2(id) {
+    dispatch(removeFromCart(id));
+  }
   return (
     <div className="w-full max-w-6xl mx-auto pt-2 pb-2 grid grid-cols-1 lg:grid-cols-[25%_75%]">
       <aside className="p-3">
         <section>
           <h2 className="uppercase text-center text-2xl pt-3 pb-3">
             Categories
-          </h2>
+          </h2>``
           <ul className="border border-black p-2 rounded-lg">
             {data2 && data2.map((value) => <li key={value}>{value}</li>)}
           </ul>
@@ -86,10 +99,17 @@ export default function Home() {
                     <p className="pt-2 pb-2">{product.title}</p>
 
                     <button
+                      onClick={() => myFunction(product)}
                       className="bg-orange-500 p-2 rounded-lg text-white"
                       type="button"
                     >
                       Add to Cart
+                    </button>
+                    <button
+                      onClick={() => myFunction2(value.id)}
+                      className="cursor-pointer border"
+                    >
+                      Delete
                     </button>
                   </figcaption>
                 </figure>

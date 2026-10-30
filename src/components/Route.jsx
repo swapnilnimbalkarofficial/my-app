@@ -26,6 +26,9 @@ import Comp14 from "./Comp14";
 import Comp21 from "./Comp21";
 import Comp31 from "./Comp31";
 import Comp41 from "./Comp41";
+import Searchmovie from "./Searchmovie";
+import Singlemovie from "./Singlemovie";
+import Cart from "./Cart";
 
 const PROJECTROUTE = (
   <BrowserRouter>
@@ -42,6 +45,9 @@ const PROJECTROUTE = (
         <Route path="comp21" element={<Comp21 />} />
         <Route path="comp31" element={<Comp31 />} />
         <Route path="comp41" element={<Comp41 />} />
+        <Route path="search" element={<Searchmovie />} />
+        <Route path="cart" element={<Cart />} />
+        <Route path="singlemovie/:id" element={<Singlemovie />} />
       </Route>
     </Routes>
   </BrowserRouter>
